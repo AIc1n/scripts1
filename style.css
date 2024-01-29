@@ -1,6 +1,6 @@
 @font-face {
 	font-family: 'VCR OSD Mono RUS+VHS icons';
-	src: url('/fonts/vhs_style.ttf') format("truetype");
+	src: url('fonts/vhs_style.ttf') format("truetype") , url('fonts/vhs_style.woff') format("woff");
 	font-style: normal;
 }
 body {
