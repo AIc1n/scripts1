@@ -4,6 +4,7 @@
 	font-style: normal;
 }
 body {
+	background-color: rgb(255, 255, 255);
 	margin: 0;
 	font-family: 'VCR OSD Mono RUS+VHS icons', sans-serif;
 	font-size: 32px;
@@ -17,3 +18,10 @@ select {
 button {
 	font-family : 'VCR OSD Mono RUS+VHS icons', sans-serif;
 }
+h1 {
+	font-size: 20px;
+}
+.adminclr {
+	color: #8A06FE;
+}
+
