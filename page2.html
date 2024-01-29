@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="scr.js"></script>
+		<link rel="stylesheet" href="style.css">
+	</head>
+	<body>
+	<p>а че ты сюда лезешь, сказали же нету ничего пока</p>
+	<center><img src='animation/error.png' width='100%'></center>
+	<button id="clear_butt">Уйти на выбор группы</button>
+	<script>
+    const myButton = document.getElementById('clear_butt');
+    myButton.addEventListener('click', function() {
+		check_localStorage()
+		console.log('Кнопка была нажата!');
+		
+    });
+  </script>
+	</body>
+</html>

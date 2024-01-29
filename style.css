@@ -1,0 +1,19 @@
+@font-face {
+	font-family: 'VCR OSD Mono RUS+VHS icons';
+	src: url('/fonts/vhs_style.ttf') format("truetype");
+	font-style: normal;
+}
+body {
+	margin: 0;
+	font-family: 'VCR OSD Mono RUS+VHS icons', sans-serif;
+	font-size: 32px;
+	line-height: 1.5;
+	text-align: center;
+}
+select {
+	font-family: 'VCR OSD Mono RUS+VHS icons', sans-serif;
+}
+
+button {
+	font-family : 'VCR OSD Mono RUS+VHS icons', sans-serif;
+}

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="scr.js"></script>
+		<script>
+		const savedPage = localStorage.getItem('selectedPage');
+		if (savedPage) {
+			window.location.href = `${savedPage}`;
+		}
+		</script>
+		<link rel="stylesheet" href="style.css">
+	</head>
+	<p>Выберите группу</p>
+	<body>
+		<select id="mySelect" onchange="openPage()">
+			<option value="">Выбирай</option>
+			<option value="page1.html">22-СИСА-01</option>
+			<option value="page2.html">22-СИСА-02</option>
+			<option value="page3.html">22-СИСА-03</option>
+		</select>
+	</body>
+</html>

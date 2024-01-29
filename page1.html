@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="scr.js"></script>
+		<link rel="stylesheet" href="style.css">
+	</head>
+	<body bgcolor='#ffffff'>
+	<center><h1>Типа расписание<h1/><center/>
+	<center><img src='photo/22sisa01.png' width='100%'><center/>
+	<h3>член<h3/>
+	<button id="clear_butt">Очистить выбор</button>
+	<script>
+    const myButton = document.getElementById('clear_butt');
+    myButton.addEventListener('click', function() {
+		check_localStorage()
+		console.log('Кнопка была нажата!');
+		
+    });
+	</script>
+	</body>
+</html>
