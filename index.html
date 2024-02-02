@@ -7,6 +7,12 @@
 		<link rel="stylesheet" href="css/button_x.css">
 		<script src="scripts/save_scr.js"></script>
 		<script src="scripts/time.js"></script>
+		<script>
+		const savedPage = localStorage.getItem('selectedPage');
+		if (savedPage) {
+			window.location.href = `${savedPage}`;
+		}
+		</script>
 	</head>
 	<p>Приветик, выполним быструю настройку)</p>
 	<body>
