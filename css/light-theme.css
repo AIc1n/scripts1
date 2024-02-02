@@ -1,0 +1,52 @@
+@font-face {
+	font-family: 'VCR OSD Mono RUS+VHS icons';
+	src: url('fonts/vhs_style.ttf') format("truetype") , url('fonts/vhs_style.woff') format("woff");
+	font-style: normal;
+}
+
+body {
+	background: linear-gradient( rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1) ), url('../img/background/bg_light.gif');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+	background-position: top;
+	font-family: 'VCR OSD Mono RUS+VHS icons', sans-serif;
+	font-size: 32px;
+	line-height: 1.0;
+	text-align: center;
+	color: #000000;
+}
+
+.table_week {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.time_week {
+	font-size: 26px;
+	color: #000000;
+}
+.name_obj_week {
+	font-size: 20px;
+	color: #000000;
+}
+.name_teach {
+	font-size: 20px;
+	color: #000000;
+}
+.numb_class {
+	font-size: 24px;
+	color: #000000;
+}
+
+td, th {
+  border: 3px solid black;
+}
+
+.tr_week_day {
+	border: 5px solid black;
+}
+
+.tr_obj_week {
+	border: 4px solid black;
+}

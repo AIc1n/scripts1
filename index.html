@@ -1,25 +1,27 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<script src="scr.js"></script>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link id="theme-set" rel="stylesheet" href="css/dark-theme.css">
+		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="css/button_x.css">
+		<script src="scripts/save_scr.js"></script>
 		<script src="scripts/time.js"></script>
-		<script>
-		const savedPage = localStorage.getItem('selectedPage');
-		if (savedPage) {
-			window.location.href = `${savedPage}`;
-		}
-		</script>
-		<link rel="stylesheet" href="style.css">
 	</head>
-	<p>Выберите группу</p>
-	<body bgcolor='#ffffff'>
-		<select id="mySelect" onchange="openPage()">
-			<option value="">Выбирай</option>
-			<option value="page1.html">22-СИСА-01</option>
-			<option value="error_page.html">22-СИСА-02</option>
-			<option value="test_page.html">ТЕСТОВАЯ СТРАНИЦА</option>
-		</select>
-	<h1>Крч все группы кроме 22-сиса-01 не робят ибо я ленивый жеп и надо делать дизайн типа крутой вот, а пока держите ахеревшую кошку<br> // Админ этой помойки - <span class="adminclr">dek1</span> _<</h1>
-	<center><img src="animation/my_cat.png" width="30%"></center>
+	<p>Приветик, выполним быструю настройку)</p>
+	<body>
+	<div class="box-1">
+		<div class="btn btn-one" id='change_theme'>
+			<span>Сменить тему</span>
+		</div>
+	</div>
+	<br></br>
+	<select id="mySelect" onchange="openPage()">
+		<option value="">Выбирай</option>
+		<option value="sis01.html">22-СИСА-01</option>
+		<option value="error_page.html">22-СИСА-02</option>
+		<option value="test_page.html">ТЕСТОВАЯ СТРАНИЦА</option>
+	</select>
+	<script src="scripts/theme.js"></script>
 	</body>
 </html>

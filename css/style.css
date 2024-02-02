@@ -1,0 +1,32 @@
+@font-face {
+	font-family: 'VCR OSD Mono RUS+VHS icons';
+	src: url('../fonts/vhs_style.ttf') format("truetype") , url('../fonts/vhs_style.woff') format("woff");
+	font-style: normal;
+}
+
+select {
+	font-family: 'VCR OSD Mono RUS+VHS icons', sans-serif;
+}
+
+button {
+	font-family : 'VCR OSD Mono RUS+VHS icons', sans-serif;
+}
+h1 {
+	font-size: 20px;
+}
+h2 {
+	font-size: 14px;
+}
+.adminclr {
+	color: #8A06FE;
+}
+.error {
+	font-size: 64px;
+}
+.btn2 {
+	line-height: 75px;
+	height: 75px;
+	text-align: center;
+	width: 300px;
+	cursor: pointer;
+}

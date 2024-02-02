@@ -1,5 +1,5 @@
-var startDate = new Date('2023-09-01');
-
+var startDate = new Date('2024-09-01');
+var weekType
 // Задаем дату, для которой нужно проверить неделю
 var currentDate = new Date();
 
