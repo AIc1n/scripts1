@@ -1,20 +1,113 @@
 @font-face {
 	font-family: 'VCR OSD Mono RUS+VHS icons';
-	src: url('fonts/vhs_style.ttf') format("truetype") , url('fonts/vhs_style.woff') format("woff");
+	src: url('../fonts/vhs_style.ttf') format("truetype") , url('../fonts/vhs_style.woff') format("woff");
 	font-style: normal;
 }
 
 body {
-	background: linear-gradient( rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1) ), url('../img/background/bg_light.gif');
+	background: linear-gradient( rgba(0, 0, 0,0), rgba(0, 0, 0,0) ), url('../img/background/bg_light.gif');
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-attachment: fixed;
 	background-position: top;
 	font-family: 'VCR OSD Mono RUS+VHS icons', sans-serif;
-	font-size: 32px;
+	font-size: 28px;
 	line-height: 1.0;
 	text-align: center;
 	color: #000000;
+}
+select {
+	color: black;
+}
+select option {
+  color: inherit;
+  background-color: #ffffff;
+}
+button.back {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border: 0;
+  outline: 0;
+  font: inherit;
+  width: 20em;
+  height: 1.5em;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 0.25em;
+  box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  color: #ffffff;
+}
+button.changer {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border: 0;
+  outline: 0;
+  font: inherit;
+  width: 15em;
+  height: 1.5em;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 0.25em;
+  box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  color: #000000;
+}
+button.setting {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border: 0;
+  outline: 0;
+  font: inherit;
+  width: 1.5em;
+  height: 1.5em;
+  background:  url('../img/img_lol/set_icon_black.png');
+  background-size: cover;
+  border-radius: 0.25em;
+  box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  color: #ffffff;
+  position: absolute;
+  top: 10px; /* Задайте нужный вам верхний отступ */
+  right: 10px; /* Задайте нужный вам правый отступ */
+  width: 50px; /* Задайте ширину для квадратной кнопки */
+  height: 50px; /* Задайте высоту для квадратной кнопки */
+  border: none;
+}
+
+.modal {
+    display: none; /* скрыть модальное окно по умолчанию */
+    position: fixed; /* фиксированная позиция */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5); /* полупрозрачный фон */
+}
+
+.modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* центрирование */
+    background-color: #fefefe;
+    padding: 20px;
+    border: 1px solid #888;
+    border-radius: 5px;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 36px;
+    font-weight: bold;
+}
+
+.close:hover {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 .table_week {
@@ -37,6 +130,12 @@ body {
 .numb_class {
 	font-size: 24px;
 	color: #000000;
+}
+
+table.rounded {
+        border-radius: 20px;
+        overflow: hidden;
+        background-color: rgba(0,0,0,0.2);
 }
 
 td, th {
