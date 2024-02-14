@@ -10,12 +10,18 @@
 	</head>
 	<body bgcolor='#ffffff'>
 	<script>
-	if (localStorage.theme !=="") {
+	if (localStorage.theme =="css/dark-theme.css" || localStorage.theme =="css/light-theme.css"){
 		document.getElementById('theme-set').href = localStorage.theme;
+	} else {
+		document.getElementById('theme-set').href = "css/dark-theme.css";
+		localStorage.theme = "css/dark-theme.css";
 	}
 	</script>
 	<div class="box-1">
 		<button class='setting' onclick="openModal()"></button>
+	</div>
+	<div class="box-1">
+		<button id='back_view'class='back' onclick="close_view_all()"style="display: none;"></button>
 	</div>
 	<div id="myModal" class="modal">
 		<div class="modal-content">
@@ -23,6 +29,12 @@
 			<p>Типа настройки</p>
 			<div class="box-1">
 				<button class='changer' onclick='changeTheme()'><span>Сменить тему</span></button>
+			</div>
+			<br />
+			<div class="box-2">
+				<button class='changer' onclick='clear_data_accept()' style="color: #ff0000">
+					<span>Стереть данные</span>
+				</button>
 			</div>
 			<br />
 			<div class="box-1">
@@ -33,6 +45,22 @@
 			<h1>А дальше настроек нету, все</h1>
 		</div>
 	</div>
+	<div id="accept_modal" class="modal">
+		<div class="modal-content">
+		<p>Вы точно хотите удалить данные?</p>
+		<div class="box-1">
+			<button class='changer' onclick='close_view_all()'>
+			<span>Нет</span>
+			</button>
+		</div>
+		<br />
+		<div class="box-2">
+			<button class='changer' onclick='clear_data()' style="color: #ff0000">
+			<span>Да</span>
+			</button>
+		</div>
+	</div>
+	</div>
 	<h1>Сейчас <span id='weekType'></span> неделя</h1>
 	
 	<div id="week_monday" style="display: none;">
@@ -40,14 +68,23 @@
 		<tbody>
 			<tr class='tr_week_day'><td style="text-align: center;" colspan="4">Понедельник</td></tr>
 			<tr><td rowspan="2">1</td>
-			<td class='name_obj_week' style="text-align: center;" colspan="3">л.Операционные системы и среды</td></tr>
-			<tr><td class='time_week'>14:50-16:20</td><td class='name_teach'>Бобровская Н.С.</td><td class='numb_class'>1-130</td></tr>
+			<td id="name_obj_1_pn" class='name_obj_week' style="text-align: center;" colspan="3">л.Операционные системы и среды</td></tr><tr>
+			<td id="time_obj_1_pn" class='time_week'>14:50-16:20</td>
+			<td id="name_teach_1_pn" class='name_teach'>Бобровская Н.С.</td>
+			<td id="numb_class_1_pn" class='numb_class'>1-130</td></tr>
 			
-			<tr class='tr_obj_week'><td rowspan="2">2</td><td class='name_obj_week' style="text-align: center;" colspan="3">пр.Операционные системы и среды</td></tr>
-			<tr><td class='time_week'>16:30-18:00</td><td class='name_teach'>Бобровская Н.С.</td><td class='numb_class'>1-125</td></tr>
+			<tr class='tr_obj_week'>
+			<td rowspan="2">2</td>
+			<td id="name_obj_2_pn" class='name_obj_week' style="text-align: center;" colspan="3">пр.Операционные системы и среды</td></tr><tr>
+			<td id="time_obj_2_pn" class='time_week'>16:30-18:00</td>
+			<td id="name_teach_2_pn" class='name_teach'>Бобровская Н.С.</td>
+			<td id="numb_class_2_pn" class='numb_class'>1-125</td></tr>
 			
-			<tr><td rowspan="2">3</td><td id='numb_week'class='name_obj_week' style="text-align: center;" colspan="3">пр.Организация, принципы построения и функционирования компьютерных сетей</td></tr>
-			<tr><td class='time_week'>18:10-19:40</td><td class='name_teach'>Ксенофондова П. Э.</td><td class='numb_class'>1-123</td></tr>
+			<tr><td rowspan="2">3</td>
+			<td id="name_obj_3_pn" id='numb_week'class='name_obj_week' style="text-align: center;" colspan="3">пр.Организация, принципы построения и функционирования компьютерных сетей</td></tr><tr>
+			<td id="time_obj_3_pn" class='time_week'>18:10-19:40</td>
+			<td id="name_teach_3_pn" class='name_teach'>Ксенофондова П. Э.</td>
+			<td id="numb_class_3_pn" class='numb_class'>1-123</td></tr>
 		</tbody>
 	</table>
 	</div>
@@ -56,14 +93,22 @@
 		<tbody>
 			<tr class='tr_week_day'><td style="text-align: center;" colspan="4">Вторник</td></tr>
 			<tr><td rowspan="2">1</td>
-			<td class='name_obj_week' style="text-align: center;" colspan="3">Физ-ра</td></tr>
-			<tr><td class='time_week'>13:10-14:40</td><td class='name_teach'></td><td class='numb_class'>Зал</td></tr>
+			<td id="name_obj_1_vt" class='name_obj_week' style="text-align: center;" colspan="3">Физ-ра</td></tr><tr>
+			<td id="time_obj_1_vt" class='time_week'>13:10-14:40</td>
+			<td id="name_teach_1_vt" class='name_teach'></td>
+			<td id="numb_class_1_vt" class='numb_class'>Зал</td></tr>
 			
-			<tr class='tr_obj_week'><td rowspan="2">2</td><td class='name_obj_week' style="text-align: center;" colspan="3">пр.Организация, принципы построения и функционирования компьютерных сетей</td></tr>
-			<tr><td class='time_week'>14:50-16:20</td><td class='name_teach'>Бобровская Н.С.</td><td class='numb_class'>1-123</td></tr>
+			<tr class='tr_obj_week'><td rowspan="2">2</td>
+			<td id="name_obj_2_vt" class='name_obj_week' style="text-align: center;" colspan="3">пр.Организация, принципы построения и функционирования компьютерных сетей</td></tr><tr>
+			<td id="time_obj_2_vt" class='time_week'>14:50-16:20</td>
+			<td id="name_teach_2_vt" class='name_teach'>Ксенофондова Л.Э.</td>
+			<td id="numb_class_2_vt" class='numb_class'>1-123</td></tr>
 			
-			<tr><td rowspan="2">3</td><td id='numb_week'class='name_obj_week' style="text-align: center;" colspan="3">л.Организация, принципы построения и функционирования компьютерных сетей</td></tr>
-			<tr><td class='time_week'>16:30-18:00</td><td class='name_teach'>Ксенофондова П. Э.</td><td class='numb_class'>1-130</td></tr>
+			<tr><td rowspan="2">3</td>
+			<td id="name_obj_3_vt" class='name_obj_week' style="text-align: center;" colspan="3">л.Организация, принципы построения и функционирования компьютерных сетей</td></tr><tr>
+			<td id="time_obj_3_vt" class='time_week'>16:30-18:00</td>
+			<td id="name_teach_3_vt" class='name_teach'>Ксенофондова Л. Э.</td>
+			<td id="numb_class_3_vt" class='numb_class'>1-130</td></tr>
 		</tbody>
 	</table>
 	</div>
@@ -72,14 +117,22 @@
 		<tbody>
 			<tr class='tr_week_day'><td style="text-align: center;" colspan="4">Среда</td></tr>
 			<tr><td rowspan="2">1</td>
-			<td id='numb_week1'class='name_obj_week' style="text-align: center;" colspan="3">л.Основы электротехники</td></tr>
-			<tr><td class='time_week'>14:50-16:20</td><td class='name_teach'>Леонтьев Н.А</td><td class='numb_class'>1-130</td></tr>
+			<td id="name_obj_1_sr" class='name_obj_week' style="text-align: center;" colspan="3">л.Основы электротехники</td></tr><tr>
+			<td id="time_obj_1_sr" class='time_week'>14:50-16:20</td>
+			<td id="name_teach_1_sr" class='name_teach'>Леонтьев Н.А</td>
+			<td id="numb_class_1_sr" class='numb_class'>1-130</td></tr>
 			
-			<tr class='tr_obj_week'><td rowspan="2">2</td><td class='name_obj_week' style="text-align: center;" colspan="3">л.Элементы высшей математики</td></tr>
-			<tr><td class='time_week'>16:30-18:00</td><td class='name_teach'>Пальников А.В.</td><td class='numb_class'>1-130</td></tr>
+			<tr class='tr_obj_week'><td rowspan="2">2</td>
+			<td id="name_obj_2_sr" class='name_obj_week' style="text-align: center;" colspan="3">л.Элементы высшей математики</td></tr><tr>
+			<td id="time_obj_2_sr" class='time_week'>16:30-18:00</td>
+			<td id="name_teach_2_sr" class='name_teach'>Пальников А.В.</td>
+			<td id="numb_class_2_sr" class='numb_class'>1-130</td></tr>
 			
-			<tr><td rowspan="2">3</td><td class='name_obj_week' style="text-align: center;" colspan="3">пр.Русский язык в профессиональной деятельности</td></tr>
-			<tr><td class='time_week'>18:10-19:40</td><td class='name_teach'>Фоменко О.В.</td><td class='numb_class'>1-127</td></tr>
+			<tr><td rowspan="2">3</td>
+			<td id="name_obj_3_sr" class='name_obj_week' style="text-align: center;" colspan="3">пр.Русский язык в профессиональной деятельности</td></tr><tr>
+			<td id="time_obj_3_sr" class='time_week'>18:10-19:40</td>
+			<td id="name_teach_3_sr" class='name_teach'>Фоменко О.В.</td>
+			<td id="numb_class_3_sr" class='numb_class'>1-227</td></tr>
 		</tbody>
 	</table>
 	</div>
@@ -88,14 +141,22 @@
 		<tbody>
 			<tr class='tr_week_day'><td style="text-align: center;" colspan="4">Четверг</td></tr>
 			<tr><td rowspan="2">1</td>
-			<td id='numb_week1'class='name_obj_week' style="text-align: center;" colspan="3">л.Основы электротехники</td></tr>
-			<tr><td class='time_week'>14:50-16:20</td><td class='name_teach'>Леонтьев Н.А.</td><td class='numb_class'>1-130</td></tr>
+			<td id="name_obj_1_ch" class='name_obj_week' style="text-align: center;" colspan="3">пр.Основы электротехники</td></tr><tr>
+			<td id="time_obj_1_ch" class='time_week'>13:10-14:40</td>
+			<td id="name_teach_1_ch" class='name_teach'>Леонтьев Н.А.</td>
+			<td id="numb_class_1_ch" class='numb_class'>1-114a</td></tr>
 			
-			<tr class='tr_obj_week'><td rowspan="2">2</td><td class='name_obj_week' style="text-align: center;" colspan="3">пр.Компьютерные сети</td></tr>
-			<tr><td class='time_week'>16:30-18:00</td><td class='name_teach'>Ксенофондова Л.Э.</td><td class='numb_class'>1-123</td></tr>
+			<tr class='tr_obj_week'><td rowspan="2">2</td>
+			<td id="name_obj_2_ch" class='name_obj_week' style="text-align: center;" colspan="3">л.Компьютерные сети</td></tr><tr>
+			<td id="time_obj_2_ch" class='time_week'>14:50-16:20</td>
+			<td id="name_teach_2_ch" class='name_teach'>Ксенофондова Л.Э.</td>
+			<td id="numb_class_2_ch" class='numb_class'>1-130</td></tr>
 			
-			<tr><td rowspan="2">3</td><td class='name_obj_week' style="text-align: center;" colspan="3">пр.Основы электротехники</td></tr>
-			<tr><td class='time_week'>18:10-19:40</td><td class='name_teach'>Леонтьев Н.А</td><td class='numb_class'>1-125</td></tr>
+			<tr><td rowspan="2">3</td>
+			<td id="name_obj_3_ch" class='name_obj_week' style="text-align: center;" colspan="3">пр.Компьютерные сети</td></tr><tr>
+			<td id="time_obj_3_ch" class='time_week'>16:30-18:10</td>
+			<td id="name_teach_3_ch" class='name_teach'>Ксенофондова Л.Э.</td>
+			<td id="numb_class_3_ch" class='numb_class'>1-123</td></tr>
 		</tbody>
 	</table>
 	</div>
@@ -104,14 +165,22 @@
 		<tbody>
 			<tr class='tr_week_day'><td style="text-align: center;" colspan="4">Пятница</td></tr>
 			<tr><td rowspan="2">1</td>
-			<td class='name_obj_week' style="text-align: center;" colspan="3">л.Основы финансовой грамотности</td></tr>
-			<tr><td class='time_week'>13:10-14:40</td><td class='name_teach'>Койвистойнен А.А.</td><td class='numb_class'>1-130</td></tr>
+			<td id="name_obj_1_pt" class='name_obj_week' style="text-align: center;" colspan="3">л.Основы финансовой грамотности</td></tr><tr>
+			<td id="time_obj_1_pt" class='time_week'>13:10-14:40</td>
+			<td id="name_teach_1_pt" class='name_teach'>Койвистойнен А.А.</td>
+			<td id="numb_class_1_pt" class='numb_class'>1-130</td></tr>
 			
-			<tr class='tr_obj_week'><td rowspan="2">2</td><td class='name_obj_week' style="text-align: center;" colspan="3">л.Теория вероятностей и математическая статистика</td></tr>
-			<tr><td class='time_week'>14:50-16:20</td><td class='name_teach'>Шаповалова Н.В.</td><td class='numb_class'>1-130</td></tr>
+			<tr class='tr_obj_week'><td rowspan="2">2</td>
+			<td id="name_obj_2_pt" class='name_obj_week' style="text-align: center;" colspan="3">л.Теория вероятностей и математическая статистика</td></tr><tr>
+			<td id="time_obj_2_pt" class='time_week'>14:50-16:20</td>
+			<td id="name_teach_2_pt" class='name_teach'>Шаповалова Н.В.</td>
+			<td id="numb_class_2_pt" class='numb_class'>1-130</td></tr>
 			
-			<tr><td rowspan="2">3</td><td id='numb_week2'class='name_obj_week' style="text-align: center;" colspan="3">пр.Теория вероятностей и математическая статистика</td></tr>
-			<tr><td class='time_week'>16:30-18:00</td><td id='numb_week_teach'class='name_teach'>Шаповалова Н.В.</td><td class='numb_class'>1-228</td></tr>
+			<tr><td rowspan="2">3</td>
+			<td id="name_obj_3_pt" id='numb_week2'class='name_obj_week' style="text-align: center;" colspan="3">пр.Теория вероятностей и математическая статистика</td></tr><tr>
+			<td id="time_obj_3_pt" class='time_week'>16:30-18:00</td>
+			<td id="name_teach_3_pt" id='numb_week_teach'class='name_teach'>Шаповалова Н.В.</td>
+			<td id="numb_class_3_pt" class='numb_class'>1-228</td></tr>
 		</tbody>
 	</table>
 	</div>
@@ -120,22 +189,30 @@
 		<tbody>
 			<tr class='tr_week_day'><td style="text-align: center;" colspan="4">Суббота</td></tr>
 			<tr><td rowspan="2">1</td>
-			<td id='numb_week3' class='name_obj_week' style="text-align: center;" colspan="3">л.Инженерная компьютерная графика</td></tr>
-			<tr><td class='time_week'>14:50-16:20</td><td id='numb_week_teach1' class='name_teach'>Заводина Л.Н.</td><td class='numb_class'>1-130</td></tr>
+			<td id="name_obj_1_su" class='name_obj_week' style="text-align: center;" colspan="3">л.Инженерная компьютерная графика</td></tr><tr>
+			<td id="time_obj_1_su" class='time_week'>14:50-16:20</td>
+			<td id="name_teach_1_su" class='name_teach'>Заводина Л.Н.</td>
+			<td id="numb_class_1_su" class='numb_class'>1-130</td></tr>
 			
-			<tr class='tr_obj_week'><td rowspan="2">2</td><td class='name_obj_week' style="text-align: center;" colspan="3">пр.Инженерная компьютерная графика</td></tr>
-			<tr><td class='time_week'>16:30-18:00</td><td class='name_teach'>Заводина Л.Н.</td><td class='numb_class'>1-114а</td></tr>
+			<tr class='tr_obj_week'>
+			<td rowspan="2">2</td>
+			<td id="name_obj_2_su" class='name_obj_week' style="text-align: center;" colspan="3">пр.Инженерная компьютерная графика</td></tr><tr>
+			<td id="time_obj_2_su" class='time_week'>16:30-18:00</td>
+			<td id="name_teach_2_su" class='name_teach'>Заводина Л.Н.</td>
+			<td id="numb_class_2_su" class='numb_class'>1-114а</td></tr>
 			
-			<tr><td rowspan="2">3</td><td class='name_obj_week' style="text-align: center;" colspan="3">пр.Иностранный язык в профессиональной деятельности</td></tr>
-			<tr><td class='time_week'>18:10-19:40</td><td class='name_teach'>Воронова М.В.</td><td class='numb_class'>1-237</td></tr>
+			<tr><td rowspan="2">3</td>
+			<td id="name_obj_3_su" class='name_obj_week' style="text-align: center;" colspan="3">пр.Иностранный язык в профессиональной деятельности</td></tr><tr>
+			<td id="time_obj_3_su" class='time_week'>18:10-19:40</td>
+			<td id="name_teach_3_su" class='name_teach'>Воронова М.В.</td>
+			<td id="numb_class_3_su" class='numb_class'>1-237</td></tr>
 	</table>
-	</div>
-	<div id="week_vosk" style="display:none;">
-		<p>У тебя выходной, иди выспись чтоле, ну а вообще сам решай фигли я тебе тут пытаюсь доказать</p>
-		<h1>слишком много текста аааааааааааааа!!!</h1>
 	</div>
 	</tbody>
 	<br></br>
+	<div class="box-1">
+		<button id='view_all_changer' class='changer' onclick='view_all()' style="display: block;"><span>Увидеть все</span></button>
+	</div>
 	<script>
 		var days = ['week_vosk', 'week_monday', 'week_vtornik', 'week_sreda', 'week_chetverg', 'week_pyatnica', 'week_subota'];
 		var d = new Date();
@@ -143,65 +220,94 @@
 		console.log(dayOfWeek)
 		switch (dayOfWeek){
 		case 'week_monday':
-			var hiddenDiv1 = document.getElementById("week_monday");
-			hiddenDiv1.style.display = "block";
-			var hiddenDiv11= document.getElementById("week_vtornik");
-			hiddenDiv11.style.display = "block";
+			var hiddenDiv_pn = document.getElementById("week_monday");
+			hiddenDiv_pn.style.display = "block";
+			var hiddenDiv_vt= document.getElementById("week_vtornik");
+			hiddenDiv_vt.style.display = "block";
 		break;
 		case 'week_vtornik':
-			var hiddenDiv2 = document.getElementById("week_vtornik");
-			hiddenDiv2.style.display = "block";
-			var hiddenDiv12 = document.getElementById("week_sreda");
-			hiddenDiv12.style.display = "block";
+			var hiddenDiv_vt = document.getElementById("week_vtornik");
+			hiddenDiv_vt.style.display = "block";
+			var hiddenDiv_sr = document.getElementById("week_sreda");
+			hiddenDiv_sr.style.display = "block";
 		break;
 		case 'week_sreda':
-			var hiddenDiv3 = document.getElementById("week_sreda");
-			hiddenDiv3.style.display = "block";
-			var hiddenDiv31 = document.getElementById("week_chetverg");
-			hiddenDiv31.style.display = "block";
+			var hiddenDiv_sr = document.getElementById("week_sreda");
+			hiddenDiv_sr.style.display = "block";
+			var hiddenDiv_ch = document.getElementById("week_chetverg");
+			hiddenDiv_ch.style.display = "block";
 		break;
 		case 'week_chetverg':
-			var hiddenDiv4 = document.getElementById("week_chetverg");
-			hiddenDiv4.style.display = "block";
-			var hiddenDiv41 = document.getElementById("week_pyatnica");
-			hiddenDiv41.style.display = "block";
+			var hiddenDiv_ch = document.getElementById("week_chetverg");
+			hiddenDiv_ch.style.display = "block";
+			var hiddenDiv_pt = document.getElementById("week_pyatnica");
+			hiddenDiv_pt.style.display = "block";
 		break;
 		case 'week_pyatnica':
-			var hiddenDiv5 = document.getElementById("week_pyatnica");
-			hiddenDiv5.style.display = "block";
-			var hiddenDiv51 = document.getElementById("week_subota");
-			hiddenDiv51.style.display = "block";
+			var hiddenDiv_pt = document.getElementById("week_pyatnica");
+			hiddenDiv_pt.style.display = "block";
+			var hiddenDiv_su = document.getElementById("week_subota");
+			hiddenDiv_su.style.display = "block";
 		break;
 		case 'week_subota':
-			var hiddenDiv6 = document.getElementById("week_subota");
-			hiddenDiv6.style.display = "block";
+			var hiddenDiv_su = document.getElementById("week_subota");
+			hiddenDiv_su.style.display = "block";
 		break;
 		default:
-			var hiddenDiv7 = document.getElementById("week_vosk");
-			hiddenDiv7.style.display = "block";
-			var hiddenDiv81 = document.getElementById("week_monday");
-			hiddenDiv81.style.display = "block";
+		break;
 	}
 
 	if (weekType == 'вторая') {
-		document.getElementById('numb_week').innerHTML = 'Пр.Компьтерные сети'
-		document.getElementById('numb_week1').innerHTML = 'НЕТУ'
-		document.getElementById('numb_week2').innerHTML = 'пр.Элементы высшей математики'
-		document.getElementById('numb_week_teach').innerHTML = 'Пальников А.В.'
-		document.getElementById('numb_week3').innerHTML = 'л.Русский язык в профессиональной деятельности'
-		document.getElementById('numb_week_teach1').innerHTML = 'Фоменко О.В.'
+		document.getElementById('name_obj_3_pn').innerHTML = 'Пр.Компьтерные сети'
+		document.getElementById('name_obj_1_sr').innerHTML = 'НЕТУ'
+		document.getElementById('name_obj_3_pt').innerHTML = 'пр.Элементы высшей математики'
+		document.getElementById('name_teach_3_pt').innerHTML = 'Пальников А.В.'
+		document.getElementById('name_obj_1_su').innerHTML = 'л.Русский язык в профессиональной деятельности'
+		document.getElementById('name_teach_1_su').innerHTML = 'Фоменко О.В.'
 		
 	} else {
-		document.getElementById('numb_week').innerHTML = 'Пр.Организация, принципы построения и функционирования компьютерных сетей'
-		document.getElementById('numb_week1').innerHTML = 'л.Основы электротехники'
-		document.getElementById('numb_week2').innerHTML = 'пр.Теория вероятностей и математическая статистика'
-		document.getElementById('numb_week_teach').innerHTML = 'Шаповалова Н.В.'
-		document.getElementById('numb_week3').innerHTML = 'л.Инженерная компьютерная графика'
-		document.getElementById('numb_week_teach1').innerHTML = 'Заводина Л.Н.'
+		
+		document.getElementById('name_obj_3_pn').innerHTML = 'Пр.Организация, принципы построения и функционирования компьютерных сетей'
+		document.getElementById('name_obj_1_sr').innerHTML = 'л.Основы электротехники'
+		document.getElementById('name_obj_3_pt').innerHTML = 'пр.Теория вероятностей и математическая статистика'
+		document.getElementById('name_teach_3_pt').innerHTML = 'Шаповалова Н.В.'
+		document.getElementById('name_obj_1_su').innerHTML = 'л.Инженерная компьютерная графика'
+		document.getElementById('name_teach_1_su').innerHTML = 'Заводина Л.Н.'
 	}
 
 	document.getElementById('weekType').innerHTML = weekType;
+	
+	function view_all() {
 
+			var hiddenDiv_pn = document.getElementById("week_monday");
+			hiddenDiv_pn.style.display = "block";
+			var hiddenDiv_vt= document.getElementById("week_vtornik");
+			hiddenDiv_vt.style.display = "block";
+			var hiddenDiv_sr = document.getElementById("week_sreda");
+			hiddenDiv_sr.style.display = "block";
+			var hiddenDiv_ch = document.getElementById("week_chetverg");
+			hiddenDiv_ch.style.display = "block";
+			var hiddenDiv_pt = document.getElementById("week_pyatnica");
+			hiddenDiv_pt.style.display = "block";
+			var hiddenDiv_su = document.getElementById("week_subota");
+			hiddenDiv_su.style.display = "block";
+			var button_view_all = document.getElementById("view_all_changer");
+			button_view_all.style.display = "none";
+			var back_view_all = document.getElementById("back_view");
+			back_view_all.style.display = "block";
+	}
+	function close_view_all() {
+		window.location.reload();
+	}
+	function clear_data_accept() {
+	document.getElementById("accept_modal").style.display = "block";
+	}
+	function clear_data() {
+		localStorage.clear();
+		localStorage.theme = 'css/dark-theme.css';
+		check_localStorage()
+		
+	}
 	function openModal() {
 		document.getElementById("myModal").style.display = "block";
 	}
@@ -212,10 +318,16 @@
 	let currentThemeIndex = 0;
 
 	function changeTheme() {
-		currentThemeIndex = (currentThemeIndex + 1) % themes.length;
-		document.getElementById('theme-set').href = themes[currentThemeIndex];
-		localStorage.theme = themes[currentThemeIndex];
-		
+	switch (localStorage.theme) {
+		case ('css/dark-theme.css') :
+			document.getElementById('theme-set').href = "css/light-theme.css";
+			localStorage.theme =  "css/light-theme.css";
+		break;
+		case ('css/light-theme.css') :
+			document.getElementById('theme-set').href = "css/dark-theme.css";
+			localStorage.theme =  "css/dark-theme.css";
+		break;
+		}
 	}
 	</script>
 	<script src="scripts/theme.js"></script>

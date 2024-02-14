@@ -13,9 +13,13 @@
 		if (savedPage) {
 			window.location.href = `${savedPage}`;
 		}
-		if (localStorage.theme !=="") {
+		if (localStorage.theme =="css/dark-theme.css" || localStorage.theme =="css/light-theme.css"){
 			document.getElementById('theme-set').href = localStorage.theme;
+		} else {
+			document.getElementById('theme-set').href = "css/dark-theme.css";
+			localStorage.theme = "css/dark-theme.css";
 		}
+
 	</script>
 	</head>
 	<body>
@@ -48,13 +52,19 @@
 		document.getElementById("myModal").style.display = "none";
 	}
 	const themes = ['css/dark-theme.css', 'css/light-theme.css'];
-	let currentThemeIndex = 0;
+	let currentThemeIndex = 1;
 
 	function changeTheme() {
-		currentThemeIndex = (currentThemeIndex + 1) % themes.length;
-		document.getElementById('theme-set').href = themes[currentThemeIndex];
-		localStorage.theme = themes[currentThemeIndex];
-		
+	switch (localStorage.theme) {
+		case ('css/dark-theme.css') :
+			document.getElementById('theme-set').href = "css/light-theme.css";
+			localStorage.theme =  "css/light-theme.css";
+		break;
+		case ('css/light-theme.css') :
+			document.getElementById('theme-set').href = "css/dark-theme.css";
+			localStorage.theme =  "css/dark-theme.css";
+		break;
+		}
 	}
 	</script>
 	<script src="scripts/theme.js"></script>

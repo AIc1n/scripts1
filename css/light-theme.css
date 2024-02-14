@@ -75,7 +75,28 @@ button.setting {
   height: 50px; /* Задайте высоту для квадратной кнопки */
   border: none;
 }
-
+button.back {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border: 0;
+  outline: 0;
+  font: inherit;
+  width: 1.5em;
+  height: 1.5em;
+  background:  url('../img/img_lol/back_icon_black.png');
+  background-size: cover;
+  border-radius: 0.25em;
+  box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  color: #ffffff;
+  position: absolute;
+  top: 10px; /* Задайте нужный вам верхний отступ */
+  left: 10px; /* Задайте нужный вам правый отступ */
+  width: 50px; /* Задайте ширину для квадратной кнопки */
+  height: 50px; /* Задайте высоту для квадратной кнопки */
+  border: none;
+}
 .modal {
     display: none; /* скрыть модальное окно по умолчанию */
     position: fixed; /* фиксированная позиция */
