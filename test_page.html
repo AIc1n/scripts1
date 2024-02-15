@@ -1,9 +1,74 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Открытие ссылки при загрузке страницы</title>
-</head>
-<body onload="window.location='https://youtu.be/dQw4w9WgXcQ?si=I2GCcKpXnhfmzKol'">
-    <h1>мяу.</h1>
-</body>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link id="theme-set" rel="stylesheet" href="css/dark-theme.css">
+		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="css/button_x.css">
+		<script src="scripts/save_scr.js"></script>
+		<script src="scripts/time.js"></script>
+	</head>
+	<body bgcolor='#ffffff'>
+	<br />
+	<br />
+	<iframe width="100%" height="315" src="https://www.youtube.com/embed/itJ_DJVKAW0?si=kgZQTPP8-q3JPe2c&amp;controls=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+	<script>
+	if (localStorage.theme =="css/dark-theme.css" || localStorage.theme =="css/light-theme.css"){
+		document.getElementById('theme-set').href = localStorage.theme;
+	} else {
+		document.getElementById('theme-set').href = "css/dark-theme.css";
+		localStorage.theme = "css/dark-theme.css";
+	}
+	</script>
+	<div class="box-1">
+		<button class='setting' onclick="openModal()"></button>
+	</div>
+	<div id="myModal" class="modal">
+		<div class="modal-content">
+			<span class="close" onclick="closeModal()">&times;</span>
+			<p>Типа настройки</p>
+			<div class="box-1">
+				<button class='changer' onclick='changeTheme()'><span>Сменить тему</span></button>
+			</div>
+			<br />
+			<div class="box-1">
+				<button class='changer' onclick='check_localStorage()'>
+					<span>Уйти на главную</span>
+				</button>
+			</div>
+			<h1>А дальше настроек нету, все</h1>
+		</div>
+	</div>
+	<br></br>
+	<script>
+	function clear_data() {
+		localStorage.clear();
+		localStorage.theme = 'css/dark-theme.css';
+		check_localStorage()
+		
+	}
+	function openModal() {
+		document.getElementById("myModal").style.display = "block";
+	}
+	function closeModal() {
+		document.getElementById("myModal").style.display = "none";
+	}
+	const themes = ['css/dark-theme.css', 'css/light-theme.css'];
+	let currentThemeIndex = 0;
+
+	function changeTheme() {
+	switch (localStorage.theme) {
+		case ('css/dark-theme.css') :
+			document.getElementById('theme-set').href = "css/light-theme.css";
+			localStorage.theme =  "css/light-theme.css";
+		break;
+		case ('css/light-theme.css') :
+			document.getElementById('theme-set').href = "css/dark-theme.css";
+			localStorage.theme =  "css/dark-theme.css";
+		break;
+		}
+	}
+	</script>
+	<script src="scripts/theme.js"></script>
+	</body>
 </html>
