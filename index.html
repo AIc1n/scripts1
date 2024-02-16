@@ -11,8 +11,17 @@
 		<script>
 		const savedPage = localStorage.getItem('selectedPage');
 		if (savedPage) {
-			window.location.href = `${savedPage}`;
+		switch (savedPage) {
+			case "test_page.html" :
+				localStorage.clear('theme');
+				window.location.href = "index.html";
+				break;
+			default :
+				window.location.href = `${savedPage}`;
+				break;
+		        }
 		}
+			
 		if (localStorage.theme =="css/dark-theme.css" || localStorage.theme =="css/light-theme.css"){
 			document.getElementById('theme-set').href = localStorage.theme;
 		} else {
