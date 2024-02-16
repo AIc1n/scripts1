@@ -8,18 +8,19 @@
 		<script src="scripts/save_scr.js"></script>
 		<script src="scripts/time.js"></script>
 	</head>
-	<body bgcolor='#ffffff'>
+	<body style="background: url('img/background/bg_test2.jpg');
+									background-repeat: no-repeat;
+									background-size: cover;
+									background-attachment: fixed;
+									background-position: top;
+									font-family: 'VCR OSD Mono RUS+VHS icons', sans-serif;
+									font-size: 28px;
+									line-height: 1.0;
+									text-align: center;
+									color: #ffffff;">
 	<br />
 	<br />
-	<iframe width="100%" height="315" src="https://www.youtube.com/embed/itJ_DJVKAW0?si=kgZQTPP8-q3JPe2c&amp;controls=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-	<script>
-	if (localStorage.theme =="css/dark-theme.css" || localStorage.theme =="css/light-theme.css"){
-		document.getElementById('theme-set').href = localStorage.theme;
-	} else {
-		document.getElementById('theme-set').href = "css/dark-theme.css";
-		localStorage.theme = "css/dark-theme.css";
-	}
-	</script>
+	<iframe width="100%" height="315" src="https://www.youtube.com/embed/itJ_DJVKAW0?si=tjlAYtTM7-rx2gBC&amp;controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 	<div class="box-1">
 		<button class='setting' onclick="openModal()"></button>
 	</div>
@@ -27,10 +28,6 @@
 		<div class="modal-content">
 			<span class="close" onclick="closeModal()">&times;</span>
 			<p>Типа настройки</p>
-			<div class="box-1">
-				<button class='changer' onclick='changeTheme()'><span>Сменить тему</span></button>
-			</div>
-			<br />
 			<div class="box-1">
 				<button class='changer' onclick='check_localStorage()'>
 					<span>Уйти на главную</span>
@@ -41,32 +38,11 @@
 	</div>
 	<br></br>
 	<script>
-	function clear_data() {
-		localStorage.clear();
-		localStorage.theme = 'css/dark-theme.css';
-		check_localStorage()
-		
-	}
 	function openModal() {
 		document.getElementById("myModal").style.display = "block";
 	}
 	function closeModal() {
 		document.getElementById("myModal").style.display = "none";
-	}
-	const themes = ['css/dark-theme.css', 'css/light-theme.css'];
-	let currentThemeIndex = 0;
-
-	function changeTheme() {
-	switch (localStorage.theme) {
-		case ('css/dark-theme.css') :
-			document.getElementById('theme-set').href = "css/light-theme.css";
-			localStorage.theme =  "css/light-theme.css";
-		break;
-		case ('css/light-theme.css') :
-			document.getElementById('theme-set').href = "css/dark-theme.css";
-			localStorage.theme =  "css/dark-theme.css";
-		break;
-		}
 	}
 	</script>
 	<script src="scripts/theme.js"></script>
