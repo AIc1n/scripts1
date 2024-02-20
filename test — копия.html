@@ -1,24 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link id="theme-css" rel="stylesheet" href="css/dark-theme.css">
-    <title>Смена темы</title>
+    <title>Изменение переменных в HTML и JavaScript</title>
 </head>
 <body>
-    <h1>Пример смены темы</h1>
-    <button onclick="changeTheme()">Сменить тему</button>
 
-    <script>
-        const themes = ['css/dark-theme.css', 'css/light-theme.css'];
-        let currentThemeIndex = 0;
+<p id="demo">Значение переменной: <span id="variable"></span></p>
+<button onclick="changeVariable()">Изменить переменную</button>
 
-        function changeTheme() {
-            currentThemeIndex = (currentThemeIndex + 1) % themes.length;
-            document.getElementById('theme-css').href = themes[currentThemeIndex];
-        }
-    </script>
+<script>
+    var myVariable = "Привет, мир!";
+
+    function changeVariable() {
+        myVariable = "Привет, новый мир!";
+        document.getElementById("variable").innerHTML = myVariable;
+    }
+
+    // Вывод начального значения переменной на страницу
+    document.getElementById("variable").innerHTML = myVariable;
+</script>
+
 </body>
 </html>
