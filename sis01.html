@@ -33,9 +33,17 @@
 			<br />
 			<div class="box-2">
 				<button class='changer' onclick='clear_data_accept()' style="color: #ff0000">
-					<span>Стереть данные</span>
+					<span>Выбрать другую группу</span>
 				</button>
 			</div>
+			<br />
+			<form action="https://t.me/lost_invoid" target="_blank">
+			<div class="box-1">
+				<button class='changer'>
+					<span>Написать админу</span>
+				</button>
+			</div>
+			</form>
 			<br />
 			<div class="box-1">
 				<button class='changer' onclick='check_localStorage()'>
@@ -47,7 +55,7 @@
 	</div>
 	<div id="accept_modal" class="modal">
 		<div class="modal-content">
-		<p>Вы точно хотите удалить данные?</p>
+		<p>Вы точно хотите отменить выбор и сбросить группу?</p>
 		<div class="box-1">
 			<button class='changer' onclick='close_view_all()'>
 			<span>Нет</span>
@@ -84,7 +92,7 @@
 			<td id="name_obj_3_pn" id='numb_week'class='name_obj_week' style="text-align: center;" colspan="3">пр.Организация, принципы построения и функционирования компьютерных сетей</td></tr><tr>
 			<td id="time_obj_3_pn" class='time_week'>18:10-19:40</td>
 			<td id="name_teach_3_pn" class='name_teach'>Ксенофондова П. Э.</td>
-			<td id="numb_class_3_pn" class='numb_class'>1-123</td></tr>
+			<td id="numb_class_3_pn" class='numb_class'>1-114a</td></tr>
 		</tbody>
 	</table>
 	</div>
@@ -102,7 +110,7 @@
 			<td id="name_obj_2_vt" class='name_obj_week' style="text-align: center;" colspan="3">пр.Организация, принципы построения и функционирования компьютерных сетей</td></tr><tr>
 			<td id="time_obj_2_vt" class='time_week'>14:50-16:20</td>
 			<td id="name_teach_2_vt" class='name_teach'>Ксенофондова Л.Э.</td>
-			<td id="numb_class_2_vt" class='numb_class'>1-123</td></tr>
+			<td id="numb_class_2_vt" class='numb_class'>1-115</td></tr>
 			
 			<tr><td rowspan="2">3</td>
 			<td id="name_obj_3_vt" class='name_obj_week' style="text-align: center;" colspan="3">л.Организация, принципы построения и функционирования компьютерных сетей</td></tr><tr>
@@ -156,7 +164,7 @@
 			<td id="name_obj_3_ch" class='name_obj_week' style="text-align: center;" colspan="3">пр.Компьютерные сети</td></tr><tr>
 			<td id="time_obj_3_ch" class='time_week'>16:30-18:10</td>
 			<td id="name_teach_3_ch" class='name_teach'>Ксенофондова Л.Э.</td>
-			<td id="numb_class_3_ch" class='numb_class'>1-123</td></tr>
+			<td id="numb_class_3_ch" class='numb_class'>1-115</td></tr>
 		</tbody>
 	</table>
 	</div>
@@ -211,7 +219,7 @@
 	</tbody>
 	<br></br>
 	<div class="box-1">
-		<button id='view_all_changer' class='changer' onclick='view_all()' style="display: block;"><span>Увидеть все</span></button>
+		<button id='view_all_changer' class='changer' onclick='view_all()' style="display: block;"><span>Увидеть все расписание</span></button>
 	</div>
 	<script>
 		var days = ['week_vosk', 'week_monday', 'week_vtornik', 'week_sreda', 'week_chetverg', 'week_pyatnica', 'week_subota'];
